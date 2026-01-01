@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiMedVollApplication {
+public class ApiMedMatheusApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiMedVollApplication.class, args);
+		SpringApplication.run(ApiMedMatheusApplication.class, args);
 	}
 }
