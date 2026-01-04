@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import med.matheus.API.Med.Matheus.domain.Medico.Medico;
 import med.matheus.API.Med.Matheus.domain.Paciente.Paciente;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "consultas")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Consulta {
@@ -36,14 +38,13 @@ public class Consulta {
     @Enumerated(EnumType.STRING)
     private MotivoDoCancelamento motivoDoCancelamento;
 
-    @Column(name = "status_consulta")
-    @Enumerated(EnumType.STRING)
-    private StatusConsulta status;
+    @Column(name = "ativa")
+    private Boolean ativa;
 
     private LocalDateTime data;
 
-    public void cancelar(MotivoDoCancelamento motivo, StatusConsulta status) {
+    public void cancelar(MotivoDoCancelamento motivo, Boolean status) {
         this.motivoDoCancelamento = motivo;
-        this.status = status;
+        this.ativa = status;
     }
 }
