@@ -6,7 +6,6 @@ import lombok.*;
 import med.matheus.API.Med.Matheus.DTO.PacientesDTO.AtualizarPacienteDTO;
 import med.matheus.API.Med.Matheus.DTO.PacientesDTO.CadastroPacienteDTO;
 import med.matheus.API.Med.Matheus.domain.Endereco.Endereco;
-import med.matheus.API.Med.Matheus.converter.SmallIntBooleanConveter;
 
 @Entity(name = "paciente")
 @Getter
@@ -32,7 +31,6 @@ public class Paciente {
     @Embedded
     private Endereco endereco;
 
-    @Convert(converter = SmallIntBooleanConveter.class)
     private Boolean ativo;
 
     public Paciente(CadastroPacienteDTO dadosPaciente) {

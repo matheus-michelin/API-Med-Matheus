@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import med.matheus.API.Med.Matheus.DTO.MedicosDTO.AtualizarMedicoDTO;
 import med.matheus.API.Med.Matheus.DTO.MedicosDTO.CadastroMedicoDTO;
 import med.matheus.API.Med.Matheus.domain.Endereco.Endereco;
-import med.matheus.API.Med.Matheus.converter.SmallIntBooleanConveter;
 import org.jetbrains.annotations.NotNull;
 
 @Entity(name = "medicos")
@@ -38,7 +37,6 @@ public class Medico {
     @Embedded
     private Endereco endereco;
 
-    @Convert(converter = SmallIntBooleanConveter.class)
     private Boolean ativo;
 
     public Medico(@NotNull CadastroMedicoDTO dadosMedico) {
