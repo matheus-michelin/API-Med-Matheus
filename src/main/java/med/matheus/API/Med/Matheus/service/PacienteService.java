@@ -33,7 +33,7 @@ public class PacienteService {
 
     public ResponseEntity<Page<ListagemPacienteDTO>> listarPacientes(Pageable pageable) {
 
-        var page = repository.findAll(pageable).map(ListagemPacienteDTO::new);
+        var page = repository.findAllByAtivoTrue(pageable).map(ListagemPacienteDTO::new);
         return ResponseEntity.ok(page);
     }
 
