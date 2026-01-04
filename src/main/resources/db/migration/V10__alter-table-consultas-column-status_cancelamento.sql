@@ -1,0 +1,1 @@
+alter table consultas rename COLUMN status_cancelamento TO status_consulta

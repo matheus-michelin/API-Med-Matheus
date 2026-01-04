@@ -17,6 +17,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Consulta {
 
+    public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime time){
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,5 +32,18 @@ public class Consulta {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    private LocalDateTime date;
+    @Column(name = "motivo_cancelamento")
+    @Enumerated(EnumType.STRING)
+    private MotivoDoCancelamento motivoDoCancelamento;
+
+    @Column(name = "status_consulta")
+    @Enumerated(EnumType.STRING)
+    private StatusConsulta status;
+
+    private LocalDateTime data;
+
+    public void cancelar(MotivoDoCancelamento motivo, StatusConsulta status) {
+        this.motivoDoCancelamento = motivo;
+        this.status = status;
+    }
 }
