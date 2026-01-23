@@ -11,7 +11,7 @@
 	<groupId>med.matheus</groupId>
 	<artifactId>API-Med-Matheus</artifactId>
 	<version>4.0.0</version>
-	<name>API-Med-Voll</name>
+	<name>API-Med-Matheus</name>
 	<description>API Rest da Aplicação Matheus.med</description>
 	<url/>
 	<licenses>
@@ -127,6 +127,13 @@
             <version>13.0</version>
             <scope>compile</scope>
         </dependency>
+
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 
     </dependencies>
 
