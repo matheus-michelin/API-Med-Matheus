@@ -2,6 +2,7 @@
 package med.matheus.API.Med.Matheus.controller;
 
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.matheus.API.Med.Matheus.DTO.MedicosDTO.AtualizarMedicoDTO;
 import med.matheus.API.Med.Matheus.DTO.MedicosDTO.CadastroMedicoDTO;
@@ -20,6 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
     @Autowired

@@ -26,6 +26,11 @@ public class SecurityConfiguration {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers("/login").permitAll();
+                    req.requestMatchers("/swagger-ui.html").permitAll();
+                    req.requestMatchers("/v3/api-docs/**").permitAll();
+                    req.requestMatchers("/swagger-ui/**").permitAll();
+                    req.requestMatchers("/swagger-ui/index.html").permitAll();
+                    req.requestMatchers("/swagger/**").permitAll();
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
@@ -34,12 +39,12 @@ public class SecurityConfiguration {
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) {
-      return configuration.getAuthenticationManager();
+        return configuration.getAuthenticationManager();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new Argon2PasswordEncoder(8, 32, 4, 65535, 3);
+        return new Argon2PasswordEncoder(16, 32, 4, 65535, 3);
     }
 
 }
