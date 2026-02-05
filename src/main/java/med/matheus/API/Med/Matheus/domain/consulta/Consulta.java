@@ -19,7 +19,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Consulta {
 
-    public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime time){
+    public Consulta(Long id, Medico medico, Paciente paciente, LocalDateTime time) {
+        this.id = id;
+        this.medico = medico;
+        this.paciente = paciente;
+        this.data = time;
     }
 
     @Id
