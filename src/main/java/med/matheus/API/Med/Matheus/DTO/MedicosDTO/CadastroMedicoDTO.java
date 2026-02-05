@@ -6,7 +6,7 @@ import jakarta.validation.constraints.*;
 import med.matheus.API.Med.Matheus.domain.Endereco.DadosEndereco;
 import med.matheus.API.Med.Matheus.domain.Medico.Especialidade;
 
-public record CadastroMedicoDTO(
+public record  CadastroMedicoDTO(
 
         @NotBlank
         String nome,
@@ -16,10 +16,11 @@ public record CadastroMedicoDTO(
         String email,
 
         @NotBlank
+        @Pattern(regexp = "^\\d{11}$", message = "O telefone deve ter entre 10 e 11 dígitos")
         String telefone,
 
         @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
+        @Pattern(regexp = "^\\d{4,6}$", message = "O CRM deve ter entre 4 e 6 dígitos")
         String crm,
 
         @NotNull

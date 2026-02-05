@@ -16,10 +16,11 @@ public record CadastroPacienteDTO(
         String email,
 
         @NotBlank
+        @Pattern(regexp = "^\\d{11}$", message = "O telefone deve ter entre 10 e 11 dígitos")
         String telefone,
 
         @NotBlank
-        @Pattern(regexp = "\\d{11}")
+        @Pattern(regexp = "^\\d{11}$", message = "O CPF deve ter 11 dígitos")
         String cpf,
 
         @NotNull
