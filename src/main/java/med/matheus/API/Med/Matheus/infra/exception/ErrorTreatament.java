@@ -3,6 +3,7 @@ package med.matheus.API.Med.Matheus.infra.exception;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
@@ -46,7 +47,10 @@ public class ErrorTreatament {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro: " +ex.getLocalizedMessage());
     }
 
-
+    @ExceptionHandler
+    public ResponseEntity treatamentJSONParseError(HttpMessageNotReadableException ex){
+        return ResponseEntity.badRequest().body("Erro na leitura, dados inválidos ou incompletos: " + ex.getLocalizedMessage());
+    }
 
     private record DadosErroValidação(String campo, String mensagem){
         public DadosErroValidação(FieldError error){
