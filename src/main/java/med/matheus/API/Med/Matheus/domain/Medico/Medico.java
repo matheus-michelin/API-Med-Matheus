@@ -39,7 +39,7 @@ public class Medico {
 
     private Boolean ativo;
 
-    public Medico(@NotNull CadastroMedicoDTO dadosMedico) {
+    public Medico(CadastroMedicoDTO dadosMedico) {
         this.ativo = true;
         this.nome = dadosMedico.nome();
         this.email = dadosMedico.email();
